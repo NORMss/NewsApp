@@ -1,15 +1,15 @@
 package com.norm.newsapi
 
 import androidx.annotation.IntRange
-import com.norm.newsapi.models.ArticlesDTO
+import com.norm.newsapi.models.ArticleDTO
 import com.norm.newsapi.models.Language
+import com.norm.newsapi.models.ResponseDTO
 import com.norm.newsapi.models.SortBy
 import com.norm.newsapi.utils.NewsApiKeyInterceptor
 import com.skydoves.retrofit.adapters.result.ResultCallAdapterFactory
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType
 import okhttp3.OkHttpClient
-import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.kotlinx.serialization.asConverterFactory
 import retrofit2.http.GET
@@ -32,7 +32,7 @@ interface NewsApi {
         @Query("sortBy") sortBy: SortBy? = null,
         @Query("pageSize") @IntRange(from = 0, to = 100) pageSize: Int = 100,
         @Query("page") @IntRange(from = 1) page: Int = 1,
-    ): Result<Response<ArticlesDTO>>
+    ): Result<ResponseDTO<ArticleDTO>>
 }
 
 fun newsApi(

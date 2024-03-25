@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.norm.database.dao.ArticleDao
-import com.norm.database.models.ArticlesDBO
+import com.norm.database.models.ArticleDBO
 import com.norm.database.utils.Converters
 
 
@@ -15,7 +15,7 @@ class NewsDatabase internal constructor(private val database: NewsRoomDatabase) 
         get() = database.articlesDao()
 }
 
-@Database(entities = [ArticlesDBO::class], version = 1)
+@Database(entities = [ArticleDBO::class], version = 1)
 @TypeConverters(Converters::class)
 internal abstract class NewsRoomDatabase : RoomDatabase() {
     abstract fun articlesDao(): ArticleDao
